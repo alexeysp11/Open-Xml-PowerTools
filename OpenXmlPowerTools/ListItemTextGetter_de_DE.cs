@@ -12,25 +12,25 @@ namespace OpenXmlPowerTools
     {
         private static string[] OneThroughNineteen = {
             "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht",
-            "nuen", "zehn", "elf", "zwölf", "dreizehn", "vierzehn",
-            "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "nuenzehn"
+            "neun", "zehn", "elf", "zwölf", "dreizehn", "vierzehn",
+            "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "neunzehn"
         };
 
         private static string[] Tens = {
             "zehn", "zwanzig", "dreißig", "vierzig", "fünfzig", "sechzig", "siebzig",
-            "achtzig", "nuenzig"
+            "achtzig", "neunzig"
         };
         
         private static string[] OrdinalOneThroughNineteen = {
             "erste", "zweite", "dritte", "vierte", "fünfte", "sechste",
-            "siebte", "achte", "nuente", "zehnte", "elfte", "zwölfte",
+            "siebte", "achte", "neunte", "zehnte", "elfte", "zwölfte",
             "dreizehnte", "vierzehnte", "fünfzehnte", "sechzehnte",
-            "siebzehnte", "achtzehnte", "nuenzehnte"
+            "siebzehnte", "achtzehnte", "neunzehnte"
         };
 
         private static string[] OrdinalTens = {
             "zehnte", "zwanzigste", "dreißigste", "vierzigste", "fünfzigste",
-            "sechzigste", "siebzigste", "achtzigste", "nuenzigste"
+            "sechzigste", "siebzigste", "achtzigste", "neunzigste"
         };
 
         public static string GetListItemText(string languageCultureName, int levelNumber, string numFmt)
@@ -71,7 +71,7 @@ namespace OpenXmlPowerTools
             int t1 = levelNumber / 1000;
             int t2 = levelNumber % 1000;
             if (t1 >= 1)
-                result += (t1 == 1 ? "ein" : OneThroughNineteen[t1 - 1]) + " thausend";
+                result += (t1 == 1 ? "ein" : OneThroughNineteen[t1 - 1]) + " tausend";
             if (t1 >= 1 && t2 == 0)
                 return result.Substring(0, 1).ToUpper() + result.Substring(1);
             if (t1 >= 1)
@@ -110,10 +110,10 @@ namespace OpenXmlPowerTools
             int t1 = levelNumber / 1000;
             int t2 = levelNumber % 1000;
             if (t1 >= 1 && t2 != 0)
-                result += (t1 == 1 ? "ein" : OneThroughNineteen[t1 - 1]) + " thausend";
+                result += (t1 == 1 ? "ein" : OneThroughNineteen[t1 - 1]) + " tausend";
             if (t1 >= 1 && t2 == 0)
             {
-                result += (t1 == 1 ? "ein" : OneThroughNineteen[t1 - 1]) + " thausendste";
+                result += (t1 == 1 ? "ein" : OneThroughNineteen[t1 - 1]) + " tausendste";
                 return result.Substring(0, 1).ToUpper() + result.Substring(1);
             }
             if (t1 >= 1)
