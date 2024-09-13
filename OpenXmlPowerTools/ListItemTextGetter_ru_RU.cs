@@ -47,7 +47,7 @@ namespace OpenXmlPowerTools
         public static string GetListItemText(string languageCultureName, int levelNumber, string numFmt)
         {
 			if (levelNumber > 19999)
-				throw new ArgumentOutOfRangeException("levelNumber", "Convering a levelNumber to ordinal text that is greater then 19 999 is not supported");
+				throw new ArgumentOutOfRangeException("levelNumber", "Converting a levelNumber to ordinal text that is greater then 19 999 is not supported");
 			if (levelNumber == 0)
 				return "Ноль";
 			if (levelNumber < 0)
