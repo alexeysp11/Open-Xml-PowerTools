@@ -46,6 +46,43 @@ namespace OpenXmlPowerTools.Tests
 
             Assert.Equal(expectedText, actualText);
         }
+
+        [Theory]
+        [InlineData(1, "Один")]
+        [InlineData(2, "Два")]
+        [InlineData(3, "Три")]
+        [InlineData(4, "Четыре")]
+        [InlineData(5, "Пять")]
+        [InlineData(6, "Шесть")]
+        [InlineData(7, "Семь")]
+        [InlineData(8, "Восемь")]
+        [InlineData(9, "Девять")]
+        [InlineData(10, "Десять")]
+        [InlineData(11, "Одиннадцать")]
+        [InlineData(12, "Двенадцать")]
+        [InlineData(13, "Тринадцать")]
+        [InlineData(14, "Четырнадцать")]
+        [InlineData(16, "Шестнадцать")]
+        [InlineData(17, "Семнадцать")]
+        [InlineData(18, "Восемнадцать")]
+        [InlineData(19, "Девятнадцать")]
+        [InlineData(20, "Двадцать")]
+        [InlineData(23, "Двадцать три")]
+        [InlineData(25, "Двадцать пять")]
+        [InlineData(50, "Пятьдесят")]
+        [InlineData(56, "Пятьдесят шесть")]
+        [InlineData(67, "Шестьдесят семь")]
+        [InlineData(78, "Семьдесят восемь")]
+        [InlineData(100, "Сто")]
+        [InlineData(123, "Сто двадцать три")]
+        [InlineData(125, "Сто двадцать пять")]
+        [InlineData(1050, "Одна тысяча пятьдесят")]
+        public void GetListItemText_CardinalText(int integer, string expectedText)
+        {
+            string actualText = ListItemTextGetter_ru_RU.GetListItemText("", integer, "cardinalText"); 
+
+            Assert.Equal(expectedText, actualText);
+        }
     }
 }
 
