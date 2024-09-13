@@ -55,7 +55,7 @@ namespace OpenXmlPowerTools
 
 			//Validation
 			if (thousands > 19)
-				throw new ArgumentOutOfRangeException("levelNumber", "Converting a levelNumber to ordinal text that is greater then 19 999 is not supported");
+				throw new ArgumentOutOfRangeException("levelNumber", "Converting a levelNumber to ordinal text that is greater then 19999 is not supported");
 			if (levelNumber == 0)
 				return "Noll";
 			if (levelNumber < 0)
