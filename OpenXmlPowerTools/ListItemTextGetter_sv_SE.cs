@@ -52,14 +52,13 @@ namespace OpenXmlPowerTools
 			int tens = int.Parse(sLevel.Substring(3, 1));
 			int ones = int.Parse(sLevel.Substring(4, 1));
 
-
 			//Validation
 			if (thousands > 19)
-				throw new ArgumentOutOfRangeException("levelNumber", "Converting a levelNumber to ordinal text that is greater than 19999 is not supported");
+				throw new ArgumentOutOfRangeException("levelNumber", "Converting a number greater than 19999 to text is not supported");
 			if (levelNumber == 0)
 				return "Noll";
 			if (levelNumber < 0)
-				throw new ArgumentOutOfRangeException("levelNumber", "Converting a negative levelNumber to ordinal text is not supported");
+				throw new ArgumentOutOfRangeException("levelNumber", "Converting a negative number to text is not supported");
 
 			/* exact thousands */
 			if (levelNumber == 1000)
