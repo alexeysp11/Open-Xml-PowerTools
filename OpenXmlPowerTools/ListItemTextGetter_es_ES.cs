@@ -13,7 +13,7 @@ namespace OpenXmlPowerTools
         private static string[] OneThroughNineteen = {
             "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho",
             "nueve", "diez", "once", "doce", "trece", "catorce",
-            "quince", "dieciseis", "diecisiete", "dieciocho", "diecinueve"
+            "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve"
         };
 
         private static string[] Tens = {
@@ -28,18 +28,18 @@ namespace OpenXmlPowerTools
 
         private static string[] OrdinalOneThroughNineteen = {
             "primero", "segundo", "tercero", "cuarto", "quinto", "sexto",
-            "septimo", "octavo", "noveno", "decimo", "undecimo", "duodecimo",
+            "séptimo", "octavo", "noveno", "décimo", "undécimo", "duodécimo",
             "decimotercio", "decimocuarto", "decimoquinto", "decimosexto",
-            "decimoseptimo", "decimoctavo", "decimonono"
+            "decimoséptimo", "decimoctavo", "decimonoveno"
         };
 
         private static string[] OrdinalTens = {
-            "decimo", "vigesimo", "trigesimo", "cuadragesimo", "quincuagesimo",
-            "sexagesimo", "septuagesimo", "octogesimo", "nonagesimo"
+            "décimo", "vigésimo", "trigésimo", "cuadragésimo", "quincuagésimo",
+            "sexagésimo", "septuagésimo", "octogésimo", "nonagésimo"
         };
         
         private static string[] OrdinalHundreds = {
-            "cienesimo", "ducentesimo", "tricentesimo", "cuadringentesimo", "quingentesimo", "sexcentesimo", "septingentesimo",
+            "centésimo", "ducentesimo", "tricentesimo", "cuadringentesimo", "quingentesimo", "sexcentesimo", "septingentesimo",
             "octingentesimo", "noningentesimo"
         };
 
@@ -53,11 +53,11 @@ namespace OpenXmlPowerTools
 				throw new ArgumentOutOfRangeException("levelNumber", "Converting a negative levelNumber to ordinal text is not supported");
 
             if (numFmt == "ordinal")
-                return GetOrdinal(levelNumber); 
+                return GetOrdinal(levelNumber);
             if (numFmt == "cardinalText")
-                return GetCardinalText(levelNumber); 
+                return GetCardinalText(levelNumber);
             if (numFmt == "ordinalText")
-                return GetOrdinalText(levelNumber); 
+                return GetOrdinalText(levelNumber);
             return null;
         }
 
@@ -84,7 +84,7 @@ namespace OpenXmlPowerTools
             int h1 = (levelNumber % 1000) / 100;
             int h2 = levelNumber % 100;
             if (h1 >= 1)
-                result += Hundreds[h1 - 1];
+                result += h1 == 1 && h2 != 0 ? "ciento" : Hundreds[h1 - 1];
             if (h1 >= 1 && h2 == 0)
                 return result.Substring(0, 1).ToUpper() + result.Substring(1);
             if (h1 >= 1)
@@ -100,7 +100,7 @@ namespace OpenXmlPowerTools
                 int r = z % 10;
                 result += Tens[x - 1];
                 if (r >= 1)
-                    result += (x == 2 ? "" : " y ") + OneThroughNineteen[r - 1];
+                    result += " y " + OneThroughNineteen[r - 1];
             }
             return result.Substring(0, 1).ToUpper() + result.Substring(1);
         }
