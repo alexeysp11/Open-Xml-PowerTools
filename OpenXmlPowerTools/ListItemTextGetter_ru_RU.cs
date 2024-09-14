@@ -81,7 +81,7 @@ namespace OpenXmlPowerTools
         {
             string result = "";
 
-            // Get thousands 
+            // Get thousands.
             int t1 = levelNumber / 1000;
             int t2 = levelNumber % 1000;
             if (t1 >= 1)
@@ -100,7 +100,7 @@ namespace OpenXmlPowerTools
             if (t1 >= 1)
                 result += " ";
             
-            // Get hundreds 
+            // Get hundreds.
             int h1 = (levelNumber % 1000) / 100;
             int h2 = levelNumber % 100;
             if (h1 >= 1)
@@ -110,7 +110,7 @@ namespace OpenXmlPowerTools
             if (h1 >= 1)
                 result += " ";
             
-            // Tens and ones 
+            // Tens and ones.
             int z = levelNumber % 100;
             if (z <= 19)
                 result += OneThroughNineteen[z - 1];
@@ -129,7 +129,7 @@ namespace OpenXmlPowerTools
         {
             string result = "";
 
-            // Get thousands 
+            // Get thousands.
             int t1 = levelNumber / 1000;
             int t2 = levelNumber % 1000;
             if (t1 >= 1 && t2 != 0)
@@ -151,7 +151,7 @@ namespace OpenXmlPowerTools
             if (t1 >= 1)
                 result += " ";
 
-            // Get hundreds 
+            // Get hundreds.
             int h1 = (levelNumber % 1000) / 100;
             int h2 = levelNumber % 100;
             if (h1 >= 1 && h2 != 0)
@@ -164,7 +164,7 @@ namespace OpenXmlPowerTools
             if (h1 >= 1)
                 result += " ";
 
-            // Get tens and ones 
+            // Get tens and ones.
             int z = levelNumber % 100;
             if (z <= 19)
                 result += OrdinalOneThroughNineteen[z - 1];
