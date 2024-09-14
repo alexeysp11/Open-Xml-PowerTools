@@ -36,11 +36,11 @@ namespace OpenXmlPowerTools
         public static string GetListItemText(string languageCultureName, int levelNumber, string numFmt)
         {
 			if (levelNumber > 19999)
-				throw new ArgumentOutOfRangeException("levelNumber", "Convering a levelNumber to ordinal text that is greater then 19 999 is not supported");
+				throw new ArgumentOutOfRangeException("levelNumber", "Converting a number greater than 19999 to text is not supported");
 			if (levelNumber == 0)
 				return "Zero";
 			if (levelNumber < 0)
-				throw new ArgumentOutOfRangeException("levelNumber", "Converting a negative levelNumber to ordinal text is not supported");
+				throw new ArgumentOutOfRangeException("levelNumber", "Converting a negative number to text is not supported");
 
             if (numFmt == "ordinal")
                 return GetOrdinal(levelNumber); 
@@ -67,27 +67,23 @@ namespace OpenXmlPowerTools
         {
             string result = "";
 
-            // Get thousands 
+            // Get thousands.
             int t1 = levelNumber / 1000;
             int t2 = levelNumber % 1000;
             if (t1 >= 1)
-                result += (t1 == 1 ? "ein" : OneThroughNineteen[t1 - 1]) + " tausend";
+                result += (t1 == 1 ? "ein" : OneThroughNineteen[t1 - 1]) + "tausend";
             if (t1 >= 1 && t2 == 0)
                 return result.Substring(0, 1).ToUpper() + result.Substring(1);
-            if (t1 >= 1)
-                result += " ";
             
-            // Get hundreds 
+            // Get hundreds.
             int h1 = (levelNumber % 1000) / 100;
             int h2 = levelNumber % 100;
             if (h1 >= 1)
-                result += (h1 == 1 ? "ein" : OneThroughNineteen[h1 - 1]) + " hundert";
+                result += (h1 == 1 ? "ein" : OneThroughNineteen[h1 - 1]) + "hundert";
             if (h1 >= 1 && h2 == 0)
                 return result.Substring(0, 1).ToUpper() + result.Substring(1);
-            if (h1 >= 1)
-                result += " ";
             
-            // Tens and ones 
+            // Tens and ones.
             int z = levelNumber % 100;
             if (z <= 19)
                 result += OneThroughNineteen[z - 1];
@@ -106,33 +102,29 @@ namespace OpenXmlPowerTools
         {
             string result = "";
 
-            // Get thousands 
+            // Get thousands.
             int t1 = levelNumber / 1000;
             int t2 = levelNumber % 1000;
             if (t1 >= 1 && t2 != 0)
-                result += (t1 == 1 ? "ein" : OneThroughNineteen[t1 - 1]) + " tausend";
+                result += (t1 == 1 ? "ein" : OneThroughNineteen[t1 - 1]) + "tausend";
             if (t1 >= 1 && t2 == 0)
             {
-                result += (t1 == 1 ? "ein" : OneThroughNineteen[t1 - 1]) + " tausendste";
+                result += (t1 == 1 ? "ein" : OneThroughNineteen[t1 - 1]) + "tausendste";
                 return result.Substring(0, 1).ToUpper() + result.Substring(1);
             }
-            if (t1 >= 1)
-                result += " ";
 
-            // Get hundreds 
+            // Get hundreds.
             int h1 = (levelNumber % 1000) / 100;
             int h2 = levelNumber % 100;
             if (h1 >= 1 && h2 != 0)
-                result += (h1 == 1 ? "ein" : OneThroughNineteen[h1 - 1]) + " hundert";
+                result += (h1 == 1 ? "ein" : OneThroughNineteen[h1 - 1]) + "hundert";
             if (h1 >= 1 && h2 == 0)
             {
-                result += (h1 == 1 ? "ein" : OneThroughNineteen[h1 - 1])  + " hundertste";
+                result += (h1 == 1 ? "ein" : OneThroughNineteen[h1 - 1])  + "hundertste";
                 return result.Substring(0, 1).ToUpper() + result.Substring(1);
             }
-            if (h1 >= 1)
-                result += " ";
 
-            // Get tens and ones 
+            // Get tens and ones.
             int z = levelNumber % 100;
             if (z <= 19)
                 result += OrdinalOneThroughNineteen[z - 1];
